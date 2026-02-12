@@ -50,7 +50,11 @@ function draw() {
     paddle.draw(ctx);
     paddle.move(canvas.width);
     if (!isGameOver) {
-        window.requestAnimationFrame(draw);
+        if (score === brickColumnCount * brickRowCount) {
+            window.alert("You won!");
+        } else {
+            window.requestAnimationFrame(draw);
+        }
     } else {
         window.alert("Game over!");
     }
