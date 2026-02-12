@@ -10,11 +10,13 @@ const paddle = new Paddle((canvas.width-75)/2, canvas.height-10, 75, 10, "#0095D
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    paddle.draw(ctx);
+    paddle.move(canvas.width);
+    
     ball.draw(ctx);
     ball.move();
     ball.bounce(canvas.width, canvas.height);
-    paddle.draw(ctx);
-    paddle.move(canvas.width);
+    ball.collides(paddle);
 
     window.requestAnimationFrame(draw);
 }
